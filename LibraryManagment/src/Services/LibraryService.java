@@ -1,6 +1,7 @@
 package Services;
 
 import Models.Book;
+import Models.Member;
 import Repositories.LibraryRepository;
 import Repositories.LoanRepository;
 
@@ -13,7 +14,7 @@ public class LibraryService {
         this.loanRepository = loanRepository;
     }
 
-    public void borrowBooks(Book book)
+    public void borrowBooks(Member member, Book book)
     {
         //reponsibilty of service layer is also to check if the book is available in the repository
         //Not just directly call the repo method loan book
@@ -28,6 +29,10 @@ public class LibraryService {
         /// 1. Repositories should focus only on CRUD (Create, Read, Update, Delete) operations for their respective datasets.
         /// 2. The service layer should manage the workflows and rules that span multiple repositories.
 
-        loanRepository.loanBook(book);
+        if(!libraryRepository.isBookAvailable(book))
+        {
+            System.out.println("Book is not in stock");
+        }
+        loanRepository.loanBook(member,book);
     }
 }

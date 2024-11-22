@@ -22,7 +22,13 @@ public class LibraryRepository {
         Book book2 = new Book(3, "how to win a guy in 90 days", "Bill gates", SubjectCategory.CHILDREN, new Rack(3,3));
         books.put(3, book2);
     }
+    public boolean isBookAvailable(Book book)
+    {
+        //check if the book is available in the map
+        //for now returning ture;
 
+        return true;
+    }
     //add book
     //search book
     //list boooks

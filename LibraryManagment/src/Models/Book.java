@@ -10,6 +10,10 @@ public class Book {
         private Date publicationDate;
         private Rack rackNo;
 
+        public Book(String title) {
+                this.title = title;
+        }
+
         public Book(int id, String title, String author, SubjectCategory category, Rack rackNo) {
                 this.id = id;
                 this.title = title;
